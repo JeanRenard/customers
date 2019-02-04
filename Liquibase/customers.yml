@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: mgauthier
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: firstname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lastname
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: active
+                  type: bool
+
+        - sql:
+            sql: INSERT INTO customers values (1, 'John', 'Doe', '0')
+        - sql:    
+            sql: INSERT INTO customers values (2, 'Roger', 'Fortin', '1')
+        - sql:    
+            sql: INSERT INTO customers values (3, 'Just', 'Tim', '1')
+        - sql:    
+            sql: INSERT INTO customers values (4, 'God', 'Father', '1')
